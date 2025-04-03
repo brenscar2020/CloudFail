@@ -39,7 +39,7 @@ sudo apt-get install python3-setuptools
 To use the DNSDumpster API, you must add your API key to the `config.py` file:
 
 1. Open `config.py` in any text editor.
-2. Locate the `DNSDUMPSTER_API_KEY` variable.
+2. Locate the `API_KEY` variable.
 3. Insert your API key as a string.
 4. Save and close the file.
 

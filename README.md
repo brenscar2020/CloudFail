@@ -76,13 +76,25 @@ python3 cloudfail.py --target seo.com --tor
 * win_inet_pton
 * dnspython
 
+## Contributions
+### 🚀 CloudFail: Fixed Errors, Added New Methods & API Key Support
+
+### **Key Improvements:**
+✅ **Fixed outdated methods** that were causing failures.  
+✅ **Added new scanning techniques** for better reconnaissance.  
+✅ **Enhanced installation instructions** with an additional API key setup step.  
+✅ **Improved script reliability** by refining dependencies and execution flow.  
+✅ **Updated documentation** to reflect all changes.  
+
+This update ensures **CloudFail** remains up-to-date and effective for researchers. Contributions and feedback are welcome! 🔥
+
 ## Credits
 - **Updated & Fixed by:** SUKH-X
-- **Original Author:** Unknown
+- **Original Author:** m0trem
 
 ## Donate BTC
 > bc1q058asjr2uwkhzl48mruer92grp567qeksh2f7x
-
+> 13eiCHxmAEaRZDXcgKJVtVnCKK5mTR1u1F
 Buy me a beer or coffee... or both!
 If you donate, send me a message, and I will add you to the credits!
 Thank YOU!

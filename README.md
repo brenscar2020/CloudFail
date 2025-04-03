@@ -95,6 +95,8 @@ This update ensures **CloudFail** remains up-to-date and effective for researche
 ## Donate BTC
 > bc1q058asjr2uwkhzl48mruer92grp567qeksh2f7x
 > 13eiCHxmAEaRZDXcgKJVtVnCKK5mTR1u1F
+
+
 Buy me a beer or coffee... or both!
 If you donate, send me a message, and I will add you to the credits!
 Thank YOU!

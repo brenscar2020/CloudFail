@@ -40,7 +40,7 @@ To use the DNSDumpster API, you must add your API key to the `config.py` file:
 
 1. Open `config.py` in any text editor.
 2. Locate the `API_KEY` variable.
-3. Insert your API key as a string.
+3. Insert your API key as a string. ***The config.py file must be in the format API_KEY: "XXXXXXXXXXXXXXXXXXXXXX", or CloudFail will not read the API key correctly***
 4. Save and close the file.
 
 #### Usage

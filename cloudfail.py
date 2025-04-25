@@ -13,8 +13,10 @@ import zipfile
 import os
 import win_inet_pton
 import platform
+import time
 from colorama import Fore, Style
 from DNSDumpsterAPI import DNSDumpsterAPI
+from config import API_KEY
 import dns.resolver
 import collections
 collections.Callable = collections.abc.Callable
@@ -85,7 +87,7 @@ def dnsdumpster(target):
     print_out(Fore.CYAN + "Testing for misconfigured DNS using dnsdumpster...")
 
  
-    api_key = "API_KEY"
+    api_key = API_KEY
     
     res = DNSDumpsterAPI(api_key=api_key, verbose=False).search(target)
 
@@ -197,7 +199,7 @@ def check_for_wildcard(target):
         #Return False to not return if no wildcard was found
         return False
 
-def subdomain_scan(target, subdomains):
+def subdomain_scan(target, subdomains, rate_limit):
     i = 0
     c = 0
     if check_for_wildcard(target):
@@ -222,6 +224,7 @@ def subdomain_scan(target, subdomains):
 
                 subdomain = "{}.{}".format(word.strip(), target)
                 try:
+                    time.sleep(rate_limit) # <-- Rate limiting here
                     target_http = requests.get("http://" + subdomain)
                     target_http = str(target_http.status_code)
                     ip = socket.gethostbyname(subdomain)
@@ -285,6 +288,7 @@ parser.add_argument("-t", "--target", help="target url of website", type=str)
 parser.add_argument("-T", "--tor", dest="tor", action="store_true", help="enable TOR routing")
 parser.add_argument("-u", "--update", dest="update", action="store_true", help="update databases")
 parser.add_argument("-s", "--subdomains", help="name of alternate subdomains list stored in the data directory", type=str)
+parser.add_argument("-r", "--rate", help="Rate limit (requests per second, default: 1)", type=int, default=1)
 parser.set_defaults(tor=False)
 parser.set_defaults(update=False)
 
@@ -308,6 +312,14 @@ if args.tor is True:
 if args.update is True:
     update()
 
+
+if args.rate <= 0:
+    print_out(Fore.RED + "Rate limit must be a positive integer (e.g. 1 for 1 request/sec).")
+    sys.exit(1)
+
+delay = 1.0 / args.rate
+
+
 try:
     # Initialize CloudFail
     init(args.target)
@@ -319,7 +331,7 @@ try:
     crimeflare(args.target)
 
     # Scan subdomains with or without TOR
-    subdomain_scan(args.target, args.subdomains)
+    subdomain_scan(args.target, args.subdomains, rate_limit=delay)
 
 except KeyboardInterrupt:
     sys.exit(0)

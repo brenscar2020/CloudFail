@@ -75,30 +75,20 @@ python3 cloudfail.py --target seo.com --tor
 * requests
 * win_inet_pton
 * dnspython
+* time
 
 ## Contributions
-### 🚀 CloudFail: Fixed Errors, Added New Methods & API Key Support
+### 🚀 CloudFail: Fixed Errors with DNSDumpter API key not being read from config.py. Added rate limiting on the subdomain scanning
 
 ### **Key Improvements:**
-✅ **Fixed outdated methods** that were causing failures.  
-✅ **Added new scanning techniques** for better reconnaissance.  
-✅ **Enhanced installation instructions** with an additional API key setup step.  
-✅ **Improved script reliability** by refining dependencies and execution flow.  
-✅ **Updated documentation** to reflect all changes.  
+✅ **Fixed API Key bug** Key wasn't being read from config.py properly    
+✅ **Added rate limiting** to slow down subdomain scanning 
 
-This update ensures **CloudFail** remains up-to-date and effective for researchers. Contributions and feedback are welcome! 🔥
+ Contributions and feedback are welcome! 🔥
 
 ## Credits
+- **Updated & Fixed by:** brenscar2020
 - **Updated & Fixed by:** SUKH-X
 - **Original Author:** m0trem
 
-## Donate BTC
-> bc1q058asjr2uwkhzl48mruer92grp567qeksh2f7x
->
-> 
-> 13eiCHxmAEaRZDXcgKJVtVnCKK5mTR1u1F
 
-
-Buy me a beer or coffee... or both!
-If you donate, send me a message, and I will add you to the credits!
-Thank YOU!
